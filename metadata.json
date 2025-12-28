@@ -1,0 +1,7 @@
+{
+  "name": "Z-Rescue: OSM Operations",
+  "description": "A top-down 2D zombie survival and rescue game using real-world OpenStreetMap data. Command your operator, eliminate threats, and save survivors.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
