@@ -2,7 +2,7 @@
 import React, { useState, useCallback, useEffect, useRef } from 'react';
 import GameMap, { GameMapRef } from './components/GameMap';
 import UIOverlay from './components/UIOverlay';
-import { GameState, RadioMessage, ToolType, Building, Coordinates } from './types';
+import { GameState, RadioMessage, ToolType, Building, Coordinates, ZTidePilot } from './types';
 import { GAME_CONSTANTS } from './constants';
 import { audioService } from './services/audioService';
 import StartScreen from './components/StartScreen';
@@ -33,6 +33,7 @@ const App: React.FC = () => {
   const [followingEntityId, setFollowingEntityId] = useState<string | null>(null);
   const [showStartScreen, setShowStartScreen] = useState(true);
   const [initialCenter, setInitialCenter] = useState<Coordinates | undefined>(undefined);
+  const [ztidePilot, setZTidePilot] = useState<ZTidePilot | null>(null);
 
   useEffect(() => {
     const initAudio = () => {
@@ -57,6 +58,14 @@ const App: React.FC = () => {
 
   const handleStartZTide = () => {
     setMode('ZTIDE');
+    setZTidePilot(null);
+    setShowStartScreen(false);
+    audioService.stopBGM();
+  };
+
+  const handleStartZTidePilot = (pilot: ZTidePilot) => {
+    setMode('ZTIDE');
+    setZTidePilot(pilot);
     setShowStartScreen(false);
     audioService.stopBGM();
   };
@@ -122,11 +131,11 @@ const App: React.FC = () => {
     <React.Suspense fallback={<div className="w-full h-screen bg-gray-900" />}>
       <div className="relative w-full h-[100dvh] bg-gray-900 overflow-hidden">
         {showStartScreen ? (
-          <StartScreen onStartGame={handleStartGame} onStartZTide={handleStartZTide} />
+          <StartScreen onStartGame={handleStartGame} onStartZTide={handleStartZTide} onStartZTidePilot={handleStartZTidePilot} />
         ) : (
           <>
             {mode === 'ZTIDE' ? (
-              <ZTideApp onExit={handleResetGame} />
+              <ZTideApp onExit={handleResetGame} pilot={ztidePilot} />
             ) : (
               <>
                 <GameMap 

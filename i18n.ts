@@ -5,7 +5,7 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 const resources = {
   zh: {
     translation: {
-      "title": "僵尸危机",
+      "title": "行动代号Z",
       "subtitle": "战术生存模拟系统",
       "version": "版本",
       "github_title": "访问 GitHub 仓库",
@@ -243,7 +243,7 @@ const resources = {
   },
   en: {
     translation: {
-      "title": "Zombie Crisis",
+      "title": "Operation Codename Z",
       "subtitle": "Tactical Survival Simulation System",
       "version": "v",
       "github_title": "Visit GitHub Repository",
@@ -481,7 +481,7 @@ const resources = {
   },
   ja: {
     translation: {
-      "title": "ゾンビ・クライシス",
+      "title": "作戦コードZ",
       "subtitle": "戦術的生存シミュレーションシステム",
       "version": "バージョン",
       "github_title": "GitHubリポジトリを表示",
@@ -719,7 +719,7 @@ const resources = {
   },
   ko: {
     translation: {
-      "title": "좀비 크라이시스",
+      "title": "작전 코드 Z",
       "subtitle": "전술 생존 시뮬레이션 시스템",
       "version": "버전",
       "github_title": "GitHub 저장소 방문",

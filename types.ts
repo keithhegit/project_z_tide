@@ -207,3 +207,9 @@ export interface VisualEffect {
   radius?: number; // For explosions
   timestamp: number;
 }
+
+export type ZTidePilot = {
+  id: string;
+  name: string;
+  coords: Coordinates;
+};
